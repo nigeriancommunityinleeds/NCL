@@ -1249,3 +1249,79 @@ a { color: inherit; text-underline-offset: 0.2em; }
   .listing { padding: 1.125rem; }
   .ticks--columns, .message__row, .reveal__list { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* 8. Phone and tablet layout ----------------------------------------- */
+.menu-button__bars { display: none; }
+.hero__dots { display: none; }
+
+@media (max-width: 68rem) {
+  :root { --header-height: 5rem; }
+  .site-header {
+    grid-template-columns: 3rem minmax(0, 1fr) 3rem;
+    gap: 0.5rem;
+    padding-inline: 1rem;
+    background: rgb(34 34 34 / 0.92);
+  }
+  .site-header__start { display: contents; }
+  .menu-button { width: 3rem; height: 3rem; background: none; }
+  .menu-button:hover { background: none; color: var(--green-300); }
+  .menu-button svg { width: 1.9rem; height: 1.9rem; }
+  .menu-button__grid { display: none; }
+  .menu-button__bars { display: block; }
+  .brand { justify-self: center; }
+  .brand__crest { display: none; }
+  .brand__name { font-size: 1.75rem; text-align: center; }
+  .site-header__end .button--outline {
+    width: 3rem;
+    min-height: 3rem;
+    padding: 0;
+    border: 0;
+  }
+  .site-header__end .button--outline:hover { background: none; transform: none; }
+  .site-header__end .button--outline span { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
+  .site-header__end .button--outline .icon { width: 1.6rem; height: 1.6rem; }
+}
+
+@media (max-width: 48rem) {
+  :root { --gutter: 1.5rem; }
+
+  .hero { grid-template-rows: 1fr auto auto; min-height: max(100svh, 46rem); }
+  .hero__content { padding-block: 3rem 1rem; }
+  .hero__eyebrow { font-size: 1.9rem; }
+  .hero__title { margin-top: 1rem; font-size: clamp(2.25rem, 10.5vw, 3.5rem); line-height: 1.15; }
+  .hero__actions { margin-top: 2rem; }
+  .hero__arrow { display: none; }
+  .hero__footer { gap: 1rem; padding-block: 1.5rem 2rem; }
+  .hero__caption-title { font-size: 1.5rem; }
+  .hero__caption-meta { margin-top: 0.5rem; font-size: 1.25rem; }
+  .hero__caption-text {
+    max-width: none;
+    padding: 1rem 0 0;
+    border-left: 0;
+    border-top: 2px solid var(--green-500);
+    font-size: 0.875rem;
+    line-height: 1.8;
+  }
+  .hero__dots { display: flex; justify-content: center; gap: 0.25rem; padding-bottom: 1.5rem; }
+  .hero__dot {
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .hero__dot::before {
+    content: "";
+    position: absolute;
+    inset: calc(50% - 3px);
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.45);
+  }
+  .hero__dot.is-active::before { background: var(--white); }
+
+  .eyebrow { font-size: 1.9rem; }
+  .heading { font-size: 1.75rem; line-height: 1.5; }
+  .banner { padding-block: calc(var(--header-height) + 3rem) 3.5rem; }
+}

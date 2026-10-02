@@ -5,13 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{title}}</title>
   <meta name="description" content="{{description}}">
+  <meta name="keywords" content="{{keywords}}">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="{{canonical}}">
   <meta name="theme-color" content="#181818">
+
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:image" content="{{shareImage}}">
+  <meta property="og:site_name" content="Nigerian Community Leeds">
+  <meta property="og:locale" content="en_GB">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{title}}">
+  <meta name="twitter:description" content="{{description}}">
+  <meta name="twitter:image" content="{{shareImage}}">
+
+  {{structuredData}}
+  <link rel="preconnect" href="https://nigerialeeds.org.uk">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Mrs+Saint+Delafield&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
   <script src="assets/js/main.js" type="module"></script>
+  {{analytics}}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -20,7 +40,8 @@
     <div class="site-header__start">
       <button class="menu-button" type="button" aria-haspopup="dialog" aria-controls="site-menu" data-menu-open>
         <span class="visually-hidden">Open menu</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+        <svg class="menu-button__bars" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="menu-button__grid" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
           <circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/>
           <circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/>
           <circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="18" r="2"/>
@@ -55,7 +76,7 @@
 
     <div class="site-header__end">
       <a class="button button--outline" href="nigeria-house.html#donate">
-        Donate now
+        <span>Donate now</span>
         <svg class="icon icon--solid" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.500s-8-5-8-10.700A4.600 4.600 0 0 1 12 7a4.600 4.600 0 0 1 8 2.800c0 5.700-8 10.700-8 10.700z"/></svg>
       </a>
     </div>

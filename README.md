@@ -17,6 +17,9 @@ After changing anything in `src`, regenerate the pages (requires Node.js):
 node build.js
 ```
 
+`build.js` also writes `sitemap.xml` and `robots.txt`. The site address and the optional
+Google Analytics ID are set at the top of `build.js`.
+
 ## Preview
 
 Serve the folder with any static server, for example:

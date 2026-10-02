@@ -59,6 +59,7 @@ function initSlider() {
   const text = slider.querySelector('[data-caption-text]');
   const prevCount = slider.querySelector('[data-prev-count]');
   const nextCount = slider.querySelector('[data-next-count]');
+  const dots = [...slider.querySelectorAll('[data-dot]')];
   const total = images.length;
   let index = 0;
   let timer = null;
@@ -76,6 +77,7 @@ function initSlider() {
     text.textContent = slide.text;
     prevCount.textContent = label(index - 1);
     nextCount.textContent = label(index + 1);
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
   };
 
   const stop = () => {
@@ -89,6 +91,7 @@ function initSlider() {
 
   slider.querySelector('[data-prev]').addEventListener('click', () => { stop(); show(index - 1); });
   slider.querySelector('[data-next]').addEventListener('click', () => { stop(); show(index + 1); });
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { stop(); show(i); }));
   slider.addEventListener('pointerenter', stop);
   slider.addEventListener('pointerleave', start);
   slider.addEventListener('focusin', stop);
