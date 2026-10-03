@@ -147,6 +147,22 @@ function initContactForm() {
   });
 }
 
+// Membership registration has no server yet, so it also goes through the visitor's email app.
+function initMailtoForm() {
+  const form = document.querySelector('[data-mailto-form]');
+  if (!form) return;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const body = [...new FormData(form)]
+      .filter(([, value]) => value)
+      .map(([label, value]) => `${label}: ${value}`)
+      .join('\n');
+    const address = new URL(form.action).pathname;
+    window.location.href = `mailto:${address}?subject=${encodeURIComponent(form.dataset.mailtoForm)}&body=${encodeURIComponent(body)}`;
+  });
+}
+
 function initReveal() {
   const meter = document.querySelector('.meter');
   if (!meter) return;
@@ -172,5 +188,6 @@ initMenu();
 initSlider();
 initFader();
 initContactForm();
+initMailtoForm();
 initReveal();
 initYear();

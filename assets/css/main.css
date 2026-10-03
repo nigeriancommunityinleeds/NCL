@@ -1325,3 +1325,30 @@ a { color: inherit; text-underline-offset: 0.2em; }
   .heading { font-size: 1.75rem; line-height: 1.5; }
   .banner { padding-block: calc(var(--header-height) + 3rem) 3.5rem; }
 }
+
+/* Membership registration */
+.signup {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: 8px;
+  background: var(--ink-800);
+  box-shadow: var(--shadow);
+}
+.signup__title { font-size: 1.875rem; color: var(--white); }
+.signup__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.signup__wide { grid-column: 1 / -1; }
+.signup__grid .field--area { margin-block: 0; }
+select.field {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 2.5rem;
+  background-image: linear-gradient(45deg, transparent 50%, var(--green-300) 50%), linear-gradient(135deg, var(--green-300) 50%, transparent 50%);
+  background-position: calc(100% - 1.4rem) 50%, calc(100% - 1.05rem) 50%;
+  background-size: 0.35rem 0.35rem;
+  background-repeat: no-repeat;
+}
+select.field:invalid { color: #a8a8a8; }
+.check { display: flex; gap: 0.75rem; align-items: flex-start; margin-block: 1.25rem 1.5rem; font-size: 0.875rem; line-height: 1.6; color: #c9c9c9; cursor: pointer; }
+.check input { flex: none; width: 1.125rem; height: 1.125rem; margin-top: 0.2rem; accent-color: var(--green-500); }
+@media (max-width: 36rem) {
+  .signup__grid { grid-template-columns: minmax(0, 1fr); }
+}
